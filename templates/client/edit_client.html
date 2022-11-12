@@ -1,0 +1,72 @@
+
+<style>
+    #color_range {
+
+        background: linear-gradient(blue,#1466c3,#3b8eed);
+        border-radius:22px;
+    }
+
+</style>
+
+{% include 'sitio/cabecera.html' %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<p>{{ message }}</p>
+{% endfor %}
+{% endif %}
+{% endwith %}
+    <br>
+
+        <div class="col-xs-12 text-center" >
+            <h1>Editar Cliente</h1>
+        </div>
+ 
+    <!-- bg-info -->
+    <div style="width: 450px;" class="container p-5 my-5  text-white" id="color_range">
+        <form action="/update_client/{{client.0}}" method="POST">
+            <!-- method="POST" -->
+            <div class="form-group">
+                <label for="cedula_nit" class="form-label">Cedula/Nit:</label>
+                <input  type="text" value="{{client.1}}" id="cedula_nit" name="cedula_nit" class="form-control" required>
+            </div>
+
+            
+            <div class="form-group">
+                <label for="nombre_completo" class="form-label">Nombre Completo:</label>
+                <input type="text" value="{{client.2}}" id="nombre_completo" name="nombre_completo" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="dirección" class="form-label">Dirección:</label>
+                <input type="text" value="{{client.3}}" id="dirección" name="dirección" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="celular" class="form-label">Celular:</label>
+                <input type="text" value="{{client.4}}" id="celular" name="celular" class="form-control" required>
+            </div>
+            
+            <br>
+            
+            <center>
+            
+            <button type="submit" class="btn btn-success">Guardar</button>
+            <a name="" id="" class="btn btn-success" href="/client/lista" role="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
+                </svg>
+                Volver
+            </a>
+            <!-- <div class="mb-3">                      
+                <input type="submit" value="Guardar"class="btn btn-success" name="registrar">
+                <a href="/client/lista" class="btn btn-danger">Cancelar</a>           
+            </div> -->
+            
+            </center>
+            
+        </form>
+
+    </div>
+
+{% include 'sitio/pie.html' %}
